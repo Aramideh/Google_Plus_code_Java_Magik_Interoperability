@@ -32,8 +32,10 @@ for convinence please copy the files in the specified directories.
 	
 	* Java documentation is available inside the doc folder, the methods are applicable for magik.
 
+
+
+####	Simple Example:
 ```
-	Simple Example:
 
 _block 
 
@@ -47,43 +49,46 @@ _block
 
 	
 	## The below line will have the same result of the above
+	write("You are initiating a open_location_code with latitude 35.7459617 and longitude 51.3735429 ")
 	 aPlusCode << open_location_code.encode(35.7459617,51.3735429 ) 
-	 
+	 write("open_location_code object is created, parameters for this object are:")
 	 write( "latitude : ",aOpenLocObj.get_latitude() ,%tab , "Longitude : " ,aOpenLocObj.get_longitude() ,%tab , "Code Length : " , aOpenLocObj.get_code_length() ,%newline)
 	 write( %newline)
 	 write("**************Static Methods***************" ,%newline)
 	 write(%newline)
-	 write( "Code is a full Open Location Code. : ", open_location_code.is_full?(aPlusCode)  ,%newline)
-	 write( "Code is a full Open Location Code and valid : ",  open_location_code.is_full_code?(aPlusCode) ,%newline )
-	 write( "code contains less than 8 valid digits : ", open_location_code.is_padded?(aPlusCode)  ,%newline)
-	 write( "Code is a short Open Location Code : " ,open_location_code.is_short?(aPlusCode)  ,%newline)
-	 write( "code is a valid short Open Location Code : " , open_location_code.is_short_code?(aPlusCode)  ,%newline)
-	 write( "whether the provided string is a valid Open Location code. : " , open_location_code.is_valid_code?(aPlusCode)  ,%newline)
-	  write("**************End of Static Methods***************" ,%newline)
+	 write( %tab,"Code is a full Open Location Code. : ", open_location_code.is_full?(aPlusCode)  ,%newline)
+	 write( %tab,"Code is a full Open Location Code and valid : ",  open_location_code.is_full_code?(aPlusCode) ,%newline )
+	 write( %tab,"code contains less than 8 valid digits : ", open_location_code.is_padded?(aPlusCode)  ,%newline)
+	 write( %tab,"Code is a short Open Location Code : " ,open_location_code.is_short?(aPlusCode)  ,%newline)
+	 write( %tab,"code is a valid short Open Location Code : " , open_location_code.is_short_code?(aPlusCode)  ,%newline)
+	 write( %tab,"whether the provided string is a valid Open Location code. : " , open_location_code.is_valid_code?(aPlusCode)  ,%newline)
+	 write(%newline)	
+	 write("**************End of Static Methods***************" ,%newline)
 	 write(%newline)	
  
-	 write(" Returns whether the bounding box specified by the Open Location Code contains provided point"  ,%newline)
-	 write(" Contains the Latitude 35.7459617 and Longitude 51.3735429 ?",%tab , aOpenLocObj.contains?(35.7459617,51.3735429)  ,%newline)
-	 write(" Contains the Latitude 35 and Longitude 51 ?",%tab , aOpenLocObj.contains?(35,51)  ,%newline)
+	 write("Returns whether the bounding box specified by the Open Location Code contains provided point"  ,%newline)
+	 write(%tab,"Contains the Latitude 35.7459617 and Longitude 51.3735429 ?",%tab , aOpenLocObj.contains?(35.7459617,51.3735429)  ,%newline)
+	 write(%tab,"Contains the Latitude 35 and Longitude 51 ?",%tab , aOpenLocObj.contains?(35,51)  ,%newline)
 	 write(%newline)	
 
 
-	 write(" Changing the current Open_Location_object latitude and longitude and length " ,%newline)
+	 write("Changing the current Open_Location_object latitude and longitude and length to latitude 35 , longitude 51 and code length 12" ,%newline)
 	 aOpenLocObj.set_latitude( 35 )
 	 aOpenLocObj.set_longitude( 51 )
 	 aOpenLocObj.set_code_length( 12 )
-	 write( "latitude : ",aOpenLocObj.get_latitude() ,%tab , "Longitude : " ,aOpenLocObj.get_longitude() ,%tab , "Code Length : " , aOpenLocObj.get_code_length()  ,%newline)
+	 write( %tab , "latitude : ",aOpenLocObj.get_latitude() ,%tab , "Longitude : " ,aOpenLocObj.get_longitude() ,%tab , "Code Length : " , aOpenLocObj.get_code_length()  ,%newline)
 
 
 	 
 	 
 		
-	## Decoding the plus code will result in open_location_code_area object	
+	write("Decoding the plus code will result in open_location_code_area object, using the method decode() ")
 	 
 	 aCodeAreaObj << aOpenLocObj.decode()
-	 
+	 write("open_location_code_area is created")
 	 ## The below line will have the same result of the above
 	 aCodeAreaObj << open_location_code.decode("8H7HP9WF+9C" )
+	 
 	 
 	 
 	 ## Defined methods are :
@@ -96,15 +101,16 @@ _block
 	 ## get_center_longitude()
 	 ## get_latitude_height()
 	 ## get_longitude_width()
-	  write(%newline)
-	 write( "south_latitude 	west_longitude 		north_latitude 		east_longitude " ,%newline)
-	 write( aCodeAreaObj.get_south_latitude() ,%tab , aCodeAreaObj.get_west_longitude() ,%tab , aCodeAreaObj.get_north_latitude() ,%tab , aCodeAreaObj.get_east_longitude()  ,%newline)
+	 write(%newline)
+	 write(" Querying the open_location_code_area object ")
+	 write(%tab,"south_latitude",%tab,"west_longitude",%tab,"north_latitude",%tab,"east_longitude" ,%newline)
+	 write(%tab,aCodeAreaObj.get_south_latitude() ,%tab , aCodeAreaObj.get_west_longitude() ,%tab , aCodeAreaObj.get_north_latitude() ,%tab , aCodeAreaObj.get_east_longitude()  ,%newline)
 	 write(%newline)
 	 write("Length is  : ", aCodeAreaObj.get_length()  ,%newline)
 	 write(%newline)
-	 write("center_latitude : ",	aCodeAreaObj.get_center_latitude()	,%tab,  "center_longitude : "  , aCodeAreaObj.get_center_longitude()  ,%newline)
+	 write("center_latitude : ",	aCodeAreaObj.get_center_latitude()	,%newline,  "center_longitude : "  , aCodeAreaObj.get_center_longitude()  ,%newline)
 	 write(%newline)
-	 write( "latitude_height : " ,aCodeAreaObj.get_latitude_height() ,%tab , "longitude_width : " ,aCodeAreaObj.get_longitude_width()  ,%newline)
+	 write( "latitude_height : " ,aCodeAreaObj.get_latitude_height() ,%newline , "longitude_width : " ,aCodeAreaObj.get_longitude_width()  ,%newline)
  	
 _endblock 
 $
@@ -115,33 +121,37 @@ $
 * Above block code's result woul be :
 ```
 
-latitude : 35.75	Longitude : 51.37	Code Length : 10
+You are initiating a open_location_code with latitude 35.7459617 and longitude 51.3735429 open_location_code object is created, parameters for this object are:latitude : 35.75	Longitude : 51.37	Code Length : 10
 
 **************Static Methods***************
 
-Code is a full Open Location Code. : True
-Code is a full Open Location Code and valid : True
-code contains less than 8 valid digits : False
-Code is a short Open Location Code : False
-code is a valid short Open Location Code : False
-whether the provided string is a valid Open Location code. : True
+	Code is a full Open Location Code. : True
+	Code is a full Open Location Code and valid : True
+	code contains less than 8 valid digits : False
+	Code is a short Open Location Code : False
+	code is a valid short Open Location Code : False
+	whether the provided string is a valid Open Location code. : True
+
 **************End of Static Methods***************
 
- Returns whether the bounding box specified by the Open Location Code contains provided point
- Contains the Latitude 35.7459617 and Longitude 51.3735429 ?	True
- Contains the Latitude 35 and Longitude 51 ?	False
+Returns whether the bounding box specified by the Open Location Code contains provided point
+	Contains the Latitude 35.7459617 and Longitude 51.3735429 ?	True
+	Contains the Latitude 35 and Longitude 51 ?	False
 
- Changing the current Open_Location_object latitude and longitude and length 
-latitude : 35.00	Longitude : 51.00	Code Length : 12
-
-south_latitude 	west_longitude 		north_latitude 		east_longitude 
-35.75	51.37	35.75	51.37
+Changing the current Open_Location_object latitude and longitude and length to latitude 35 , longitude 51 and code length 12
+	latitude : 35.00	Longitude : 51.00	Code Length : 12
+Decoding the plus code will result in open_location_code_area object, using the method decode() open_location_code_area is created
+ Querying the open_location_code_area object 	south_latitude	west_longitude	north_latitude	east_longitude
+	35.75	51.37	35.75	51.37
 
 Length is  : 10
 
-center_latitude : 35.75	center_longitude : 51.37
+center_latitude : 35.75
+center_longitude : 51.37
 
-latitude_height : 0.0001250	longitude_width : 0.0001250
+latitude_height : 0.0001250
+longitude_width : 0.0001250
+
 	
 	
 ```
