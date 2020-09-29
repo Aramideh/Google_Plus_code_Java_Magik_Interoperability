@@ -1,0 +1,35 @@
+_package user
+$
+
+ 
+	
+     _global plus_code <<  _proc @plus_code( latitude , longitude , _optional codeLength)
+     
+     				aOpenLocCode << open_location_code.new()
+     				 
+     				## "Frere Jacques"
+     				aPlusCode << aOpenLocCode.encode(latitude , longitude , codeLength )
+					
+					>> aPlusCode
+					
+     			_endproc
+     
+	 
+#	 _block
+#	 	 aOpenLocCode << open_location_code.new()
+#		 decoded << aOpenLocCode.decode()
+#		 #**** Error: Java exception java.lang.IllegalArgumentException: Cannot convert null to double
+#		 
+#	 _endblock 
+#	 $
+#	 
+#	 
+#	 _block
+#	 	 aOpenLocCode << open_location_code.new( 35 , 64 , 40)
+#		 aOpenLocCode.encode()     
+#		 decoded << aOpenLocCode.decode()
+#		 #**** Error: Java exception java.lang.IllegalArgumentException: Cannot convert null to double
+#		 
+#	 _endblock 
+#	 $
+#	 
