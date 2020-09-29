@@ -8,7 +8,7 @@ $
      				aOpenLocCode << open_location_code.new()
      				 
      				## "Frere Jacques"
-     				aPlusCode << aOpenLocCode.encode(latitude , longitude , codeLength )
+     				aPlusCode << aOpenLocCode.encode()
 					
 					>> aPlusCode
 					
