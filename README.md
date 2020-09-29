@@ -20,8 +20,8 @@ In this repository all the code is written in Java and then it's exposed to Smal
 
 for convinence please copy the files in the specified directories.
 
-* copy Magik_Module\swj_open_location_code to the %SMALLWORLD_GIS%\interop.demo\interop_demo_product\modules\
-* copy jar\SW_Google_Open_Location_Magik_Java_Interop.jar to %SMALLWORLD_GIS%\interop.demo\interop_demo_product\libs\
+* copy swj_open_location_code in Magik_Module folder to the %SMALLWORLD_GIS%\interop.demo\interop_demo_product\modules\
+* copy SW_Google_Open_Location_Magik_Java_Interop.jar in jar folder to %SMALLWORLD_GIS%\interop.demo\interop_demo_product\libs\
 * smallworld_product.add_product(:interop_demo_product)
 * compile the modules
 * If the comilation is successfull you would see sw_interop_demo.swj_open_location_code.1.jar at the %SMALLWORLD_GIS%\interop.demo\interop_demo_product\libs\
