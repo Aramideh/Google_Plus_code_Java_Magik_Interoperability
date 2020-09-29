@@ -30,14 +30,13 @@ for convinence please copy the files in the specified directories.
 ####  Java Source files are in Java_project/SW_Google_Open_Location_Magik_Java_Interop/src/com/aramideh/sadeq
 
 #### Classes:
-	Two classes are defined open_location_code and open_location_code_area
-	* All static methods of the original google's java class is exposed, even though there are fewer methods because of the Optional parameter in Magik language
-	
-	* Java documentation is available inside the doc folder, the methods are applicable for magik.
+Two classes are defined open_location_code and open_location_code_area
+* All static methods of the original google's java class is exposed, even though there are fewer methods because of the Optional parameter in Magik language
+* Java documentation is available inside the doc folder, the methods are applicable for magik.
 
 
 
-####	Simple Example:
+#### Simple Example:
 ```
 _block 
 
@@ -49,10 +48,13 @@ _block
   write("Plus Code for the provided coordinate is : " ,aPlusCode )
 _endblock
 $
+
 ``` 
 
 
-####	Complete Example:
+
+
+#### Complete Example:
 
 ```
 _block 
@@ -124,12 +126,11 @@ _block
 _endblock 
 $
 
-
 ```
 
 * Above block code's result woul be :
-```
 
+```
 You are initiating a open_location_code with latitude 35.7459617 and longitude 51.3735429 open_location_code object is created, parameters for this object are:latitude : 35.75	Longitude : 51.37	Code Length : 10
 
 **************Static Methods***************
@@ -161,8 +162,6 @@ center_longitude : 51.37
 latitude_height : 0.0001250
 longitude_width : 0.0001250
 
-	
-	
 ```
 
 
