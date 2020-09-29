@@ -1,6 +1,6 @@
-# Google_Plus_code_Java_Magik
+# Google Plus Code capability with Magik–Java™ interoperability
 
-## Google Plus Code capability with Magik–Java™ interoperability ( Smallworld 5.1 ) 
+## Google Plus Code capability with Magik–Java™ interoperability
 
 
 ### Introduction
