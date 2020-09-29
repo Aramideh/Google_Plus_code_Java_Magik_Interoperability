@@ -43,6 +43,22 @@ _block
   
   ##  returns the encoded plus code : in this case it will return a string with value of "8H7HP9WF+9C" 
   aPlusCode << aOpenLocObj.encode()
+  write("Plus Code for the provided coordinate is : " ,aPlusCode )
+_endblock
+$
+``` 
+
+
+####	Complete Example:
+
+```
+_block 
+
+  ## returns an open_location_code object with latitude 35.7459617 and longitude 51.3735429
+  aOpenLocObj << open_location_code.new( 35.7459617,51.3735429 ) 
+  
+  ##  returns the encoded plus code : in this case it will return a string with value of "8H7HP9WF+9C" 
+  aPlusCode << aOpenLocObj.encode()
   
   ## The below line will have the same result of the above
   write("You are initiating a open_location_code with latitude 35.7459617 and longitude 51.3735429 ")
