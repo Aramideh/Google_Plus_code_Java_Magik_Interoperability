@@ -26,6 +26,9 @@ for convinence please copy the files in the specified directories.
 * compile the modules
 * If the comilation is successfull you would see sw_interop_demo.swj_open_location_code.1.jar at the %SMALLWORLD_GIS%\interop.demo\interop_demo_product\libs\
 
+
+####  Java Source files are in Java_project/SW_Google_Open_Location_Magik_Java_Interop/src/com/aramideh/sadeq
+
 #### Classes:
 	Two classes are defined open_location_code and open_location_code_area
 	* All static methods of the original google's java class is exposed, even though there are fewer methods because of the Optional parameter in Magik language
@@ -165,8 +168,7 @@ longitude_width : 0.0001250
 
 ### Author Notes
 
- * This modules is tested on Smallworld 5.1.9 (Long support )
-	
+ * This modules is tested on Smallworld 5.1.9 (Long support )	
 
 
 
