@@ -5,7 +5,7 @@ $
 	
      _global plus_code_encode <<  _proc @plus_code_encode( latitude , longitude , _optional codeLength)
      
-     				aOpenLocCode << open_location_code.encode( )
+     				aOpenLocCode << open_location_code.encode( latitude , longitude , codeLength)
 					_return aOpenLocCode
      			_endproc
      
