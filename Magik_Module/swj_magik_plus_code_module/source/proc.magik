@@ -1,0 +1,109 @@
+_package user
+$
+
+ 
+	
+     _global plus_code_encode <<  _proc @plus_code_encode( latitude , longitude , _optional codeLength)
+     
+     				aOpenLocCode << open_location_code.encode( )
+					_return aOpenLocCode
+     			_endproc
+     
+	 	
+     _global plus_code_decode <<  _proc @plus_code_decode( a_plus_code , _optional precision)
+     				_dynamic !print_float_precision! 
+					!print_float_precision! << precision.default ( 10 )
+     				_local aCodeAreaObj <<   open_location_code.decode( a_plus_code )
+					write("center_latitude : ",	aCodeAreaObj.get_center_latitude()	,%newline,  "center_longitude : "  , aCodeAreaObj.get_center_longitude()  ,%newline)
+					>> aCodeAreaObj
+     			_endproc
+     
+	 
+	 
+	 _global plus_code_demo << _proc @ plus_code_demo ()
+                           	  ## returns an open_location_code object with latitude 35.7459617 and longitude 51.3735429
+                             aOpenLocObj << open_location_code.new( 35.7459617,51.3735429 ) 
+                             
+                             ##  returns the encoded plus code : in this case it will return a string with value of "8H7HP9WF+9C" 
+                             aPlusCode << aOpenLocObj.encode()
+                             
+                             ## The below line will have the same result of the above
+                             write("You are initiating a open_location_code with latitude 35.7459617 and longitude 51.3735429 ")
+                             aPlusCode << open_location_code.encode(35.7459617,51.3735429 ) 
+                             write("open_location_code object is created, parameters for this object are:")
+                             write( "latitude : ",aOpenLocObj.get_latitude() ,%tab , "Longitude : " ,aOpenLocObj.get_longitude() ,%tab , "Code Length : " , aOpenLocObj.get_code_length() ,%newline)
+                             write( %newline)
+                             write("**************Static Methods***************" ,%newline)
+                             write(%newline)
+                             write( %tab,"Code is a full Open Location Code. : ", open_location_code.is_full?(aPlusCode)  ,%newline)
+                             write( %tab,"Code is a full Open Location Code and valid : ",  open_location_code.is_full_code?(aPlusCode) ,%newline )
+                             write( %tab,"code contains less than 8 valid digits : ", open_location_code.is_padded?(aPlusCode)  ,%newline)
+                             write( %tab,"Code is a short Open Location Code : " ,open_location_code.is_short?(aPlusCode)  ,%newline)
+                             write( %tab,"code is a valid short Open Location Code : " , open_location_code.is_short_code?(aPlusCode)  ,%newline)
+                             write( %tab,"whether the provided string is a valid Open Location code. : " , open_location_code.is_valid_code?(aPlusCode)  ,%newline)
+                             write(%newline)	
+                             write("**************End of Static Methods***************" ,%newline)
+                             write(%newline)	
+                             
+                             write("Returns whether the bounding box specified by the Open Location Code contains provided point"  ,%newline)
+                             write(%tab,"Contains the Latitude 35.7459617 and Longitude 51.3735429 ?",%tab , aOpenLocObj.contains?(35.7459617,51.3735429)  ,%newline)
+                             write(%tab,"Contains the Latitude 35 and Longitude 51 ?",%tab , aOpenLocObj.contains?(35,51)  ,%newline)
+                             write(%newline)	
+                             
+                             write("Changing the current Open_Location_object latitude and longitude and length to latitude 35 , longitude 51 and code length 12" ,%newline)
+                             aOpenLocObj.set_latitude( 35 )
+                             aOpenLocObj.set_longitude( 51 )
+                             aOpenLocObj.set_code_length( 12 )
+                             write( %tab , "latitude : ",aOpenLocObj.get_latitude() ,%tab , "Longitude : " ,aOpenLocObj.get_longitude() ,%tab , "Code Length : " , aOpenLocObj.get_code_length()  ,%newline)
+                             
+                             
+                             write("Decoding the plus code will result in open_location_code_area object, using the method decode() ")
+                             
+                             aCodeAreaObj << aOpenLocObj.decode()
+                             write("open_location_code_area is created")
+                             ## The below line will have the same result of the above
+                             aCodeAreaObj << open_location_code.decode("8H7HP9WF+9C" )
+                             
+                             ## Defined methods are :
+                             ## get_south_latitude()
+                             ## get_west_longitude()
+                             ## get_north_latitude()
+                             ## get_east_longitude()
+                             ## get_length()
+                             ## get_center_latitude()
+                             ## get_center_longitude()
+                             ## get_latitude_height()
+                             ## get_longitude_width()
+                             write(%newline)
+                             write(" Querying the open_location_code_area object ")
+                             write(%tab,"south_latitude",%tab,"west_longitude",%tab,"north_latitude",%tab,"east_longitude" ,%newline)
+                             write(%tab,aCodeAreaObj.get_south_latitude() ,%tab , aCodeAreaObj.get_west_longitude() ,%tab , aCodeAreaObj.get_north_latitude() ,%tab , aCodeAreaObj.get_east_longitude()  ,%newline)
+                             write(%newline)
+                             write("Length is  : ", aCodeAreaObj.get_length()  ,%newline)
+                           write(%newline)
+                           write("center_latitude : ",	aCodeAreaObj.get_center_latitude()	,%newline,  "center_longitude : "  , aCodeAreaObj.get_center_longitude()  ,%newline)
+                           write(%newline)
+                           write( "latitude_height : " ,aCodeAreaObj.get_latitude_height() ,%newline , "longitude_width : " ,aCodeAreaObj.get_longitude_width()  ,%newline)
+
+							 _endproc 
+	 
+	 
+	 
+#	 _block
+#	 	 aOpenLocCode << open_location_code.new()
+#		 decoded << aOpenLocCode.decode()
+#		 #**** Error: Java exception java.lang.IllegalArgumentException: Cannot convert null to double
+#		 
+#	 _endblock 
+#	 $
+#	 
+#	 
+#	 _block
+#	 	 aOpenLocCode << open_location_code.new( 35 , 64 , 40)
+#		 aOpenLocCode.encode()     
+#		 decoded << aOpenLocCode.decode()
+#		 #**** Error: Java exception java.lang.IllegalArgumentException: Cannot convert null to double
+#		 
+#	 _endblock 
+#	 $
+#	 
